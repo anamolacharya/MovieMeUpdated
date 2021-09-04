@@ -128,7 +128,7 @@ function MoviePage(props) {
             <h3> {movie.overview}</h3>
           </div>
 
-          <div className="stream_text">
+          {/* <div className="stream_text">
             <h1 className="st">Streaming Options</h1>
             <br />
             <h2>
@@ -156,6 +156,41 @@ function MoviePage(props) {
                 Buy:{"     "}
                 {watchProvider.results.IN.buy
                   ? watchProvider.results.IN.buy.map((z) => {
+                      return z.provider_name + ", ";
+                    })
+                  : "N/A"}
+              </li>
+            </h2>
+          </div> */}
+
+          <div className="stream_text">
+            <h1 className="st">Streaming Options</h1>
+            <br />
+            <h2>
+              <li>
+                Rent:{"  "}
+                {watchProvider.results.US.rent
+                  ? watchProvider.results.US.rent.map((x) => {
+                      return x.provider_name + ", ";
+                    })
+                  : "No Rent options available"}
+              </li>
+              <br />
+              <li>
+                {" "}
+                Flatrate:{"  "}
+                {watchProvider.results.US.flatrate
+                  ? watchProvider.results.US.flatrate.map((y) => {
+                      return y.provider_name + ", ";
+                    })
+                  : "No Flatrate Options Available"}
+              </li>
+              <br />
+              <li>
+                {" "}
+                Buy:{"     "}
+                {watchProvider.results.US.buy
+                  ? watchProvider.results.US.buy.map((z) => {
                       return z.provider_name + ", ";
                     })
                   : "N/A"}
